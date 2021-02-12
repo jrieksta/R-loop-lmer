@@ -64,9 +64,9 @@ for (i in 1:length(voc_group)) {
 }
 
 #2
-Response <-as.data.frame(d1[,c(42:50)]) #select columns of VOCs / voc groups interested
-results <- vector("list", length(Response))
-model<- formula(paste(Response[i],"~ treatment  * herbivory * Date + (1|Block/Plot)"))
+voc_group <-as.data.frame(d1[,c(42:50)]) #select columns of VOCs / voc groups interested
+results <- vector("list", length(voc_group))
+model<- formula(paste(voc_group[i],"~ treatment  * herbivory * Date + (1|Block/Plot)"))
 lmer <- lmer(model)
 
 Save_the_results{

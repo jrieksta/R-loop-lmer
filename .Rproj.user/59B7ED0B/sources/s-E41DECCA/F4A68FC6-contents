@@ -1,0 +1,37 @@
+# Clear environment ------------------------------------------------------
+rm(list = ls())
+###############################
+
+# Load data ---------------------------------------------------------------
+data <- read.csv2(file.choose(), header=TRUE, dec = ".", sep = ",")
+str(data)
+
+# Factors -----------------------------------------------------------------
+data$Sample <- as.factor(data$Sample)
+data$Date <- as.factor(data$Date)
+data$Type <- as.factor(data$Type)
+data$Species <- as.factor(data$Species)
+data$Location <- as.factor(data$Location)
+str(data)
+
+# Libraries ---------------------------------------------------------------
+library(lme4)
+library(dplyr)
+
+# Slecting species for test ----------------------------------------------
+data.M <- dplyr::filter(data, Species %in% c("Pleurozium schreberi", "Sphagnum warnstorfii"))
+data.M$Species
+data.M$Species <- factor(data.M$Species)
+levels(data.M$Species)
+
+# Create dataframe containing individual compounds ------------------------
+head(data.M[,25:196])
+df <- data.frame(data.M[,25:196])
+dim(df)
+
+# Create loop ------------------------------------------------------------
+for (i in 1:length(df)) { 
+  variable <- df[,i]
+  lmer_df <- lmer(variable ~ Species + (1|Location) + (1|Date), data = data.M)
+  print(summary(lme_df)$tTable)
+}

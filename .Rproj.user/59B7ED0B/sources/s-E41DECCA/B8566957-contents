@@ -59,8 +59,8 @@ voc_group <-as.data.frame(d1[,c(42:50)]) #select columns of VOCs / voc groups in
 dim(voc_group)
 for (i in 1:length(voc_group)) { 
   variable <- voc_group[,i]
-  lme_cer <- lmer(variable ~ treatment*herbivory*Date+(1|Block/Plot),data=d1)
-  print(summary(lme_cer)$coef)
+  model <- lmer(variable ~ treatment*herbivory*Date+(1|Block/Plot),data=d1)
+  print(summary(model)$coef)
 }
 
 #2

@@ -1,0 +1,25 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1613123319319.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "705C0410",
+    "lastKnownWriteTime" : 1613123237,
+    "last_content_update" : 1613123237,
+    "path" : "C:/Users/lcm767/OneDrive - Københavns Universitet/Desktop/Projects/Useful_functions.R",
+    "project_path" : null,
+    "properties" : {
+        "cursorPosition" : "102,0",
+        "scrollLine" : "0"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

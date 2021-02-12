@@ -1,0 +1,102 @@
+#16122020 uselful functions
+#order data in the specific order by the id, so when I obtain the totals, i can merge
+newdata <- mean_all[order(mean_all$new_ID),]
+
+
+#obtain the total VOC per sample!
+write.csv(newdata, "newdata.csv")
+n <- 8 
+vv <- newdata$mean
+seqs <- seq_along(vv)
+a=tapply(vv,rep(seqs,each=n)[seqs],FUN=sum)
+as.data.frame(a) #copied to excel
+
+totals$Date[totals$Date=="0.48655092592592591"] <- "11.07.2018"
+totals$Date[totals$Date=="0.23655092592592594"] <- "05.07.2018"
+
+gather_d1<-VOCs %>% gather(key =  "VOC" , value = 'ER', 	VOCs$RT_min.x :	VOCs$X132.2612_191108_31WC_C_310719.CDF)
+
+
+#12022021
+#############Load libraries################
+.libPaths()
+.libPaths("C:/R Packages")
+Sys.setenv(LANGUAGE='en')
+suppressPackageStartupMessages({
+  library(dplyr)
+  library(HistData)
+  library(vegan)
+  library(devtools)
+  library(tidyverse)
+  library(scales)
+  library(ggplot2)
+  library(LabApplStat)
+  library(emmeans)
+  library(multcompView)
+  library(Rmisc)
+  library(sciplot)
+  library(ggpubr)
+  library(lme4)
+  library(nlme)
+  library(wesanderson)
+  library(multcomp)
+  library(readxl)
+  library(plyr)
+  library(RColorBrewer)
+  library(dplyr)
+  library(car)
+  library(e1071)
+  library(lme4)
+  library(bbmle)
+  library(generics)
+  library(caret)
+  library(leaps)
+  library(emmeans)
+  library(devtools)
+  library(LabApplStat)
+  library(sjmisc)
+  library(sjPlot)
+  library(ggpubr)
+  library(viridisLite)
+  library(viridis)
+  library(treemap)
+  library(shiny)
+  library(esquisse)
+  library(remotes)
+  library(ggpattern)
+  library(readxl)
+  
+})
+
+
+d1$herbivory <- factor(d1$herbivory)
+d1$treatment <- factor(d1$treatment)
+d1$Block <- factor(d1$Block)
+d1$Plot <- factor(d1$Plot)
+
+#1
+
+names(d1)
+voc_group <-as.data.frame(d1[,c(42:50)])
+dim(voc_group)
+for (i in 1:length(voc_group)) { 
+  variable <- voc_group[,i]
+  lme_cer <- lmer(variable ~ treatment*herbivory*Date+(1|Block/Plot),data=d1)
+  print(summary(lme_cer)$coef)
+}
+
+
+
+Response <-as.data.frame(d1[,c(42:50)])
+results <- vector("list", length(Response))
+model<- formula(paste(Response[i],"~ treatment  * herbivory * Date + (1|Block/Plot)"))
+lmer <- lmer(model)
+
+Save_the_results{
+lmer <- lmer(model)
+ results[[i]] <- summary(model)
+}
+ {
+print(results[[i]])
+
+

@@ -1,0 +1,26 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1613123303770.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "4|27|52|2|\n",
+    "hash" : "0",
+    "id" : "B8566957",
+    "lastKnownWriteTime" : 1613123503,
+    "last_content_update" : 1613123503538,
+    "path" : "C:/Users/lcm767/OneDrive - Københavns Universitet/Desktop/Projects/Repositories/R-loop-lmer/12022021_loop_lmer_JRieksta.R",
+    "project_path" : "12022021_loop_lmer_JRieksta.R",
+    "properties" : {
+        "cursorPosition" : "77,2",
+        "scrollLine" : "1",
+        "tempName" : "Untitled1"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
